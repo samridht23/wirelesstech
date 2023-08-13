@@ -1,95 +1,56 @@
-import { styled } from "styled-components"
 import Link from "next/link"
 
-const CatalogContainer = styled.div`
-  max-width:var(--2xl);
-  margin:auto;
-  padding:4rem 0;
-  position:relative;
-  width:100%;
-`
-const CatalogContent = styled.div`
-  width:100%;
-  display:grid;
-  gap:1rem;
-  box-sizing: border-box;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  padding:1rem;
-  justify-content: center;
-`
-const CatalogCard = styled.div`
-  overflow:hidden;
-  position:relative;
-  border:1px solid; 
-  border-radius:0.3rem;
-  border-color:var(--border);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s ease-in-out;
-  ${CatalogCard}:hover & {
-    transform: scale(1.1);
-  }
-`;
-const ImageOverlay = styled.div`
-  position:absolute;
-  top:0;
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-`
-const OverlayContent = styled.div`
-  width:100%;
-  padding:1rem;
-  font-size:24px;
-  font-family:SpaceGrotesk;
-  color:var(--text-dark);
-`
+const catalogData = [
+  {
+    href: "/",
+    imgUrl: "/img/catalogImg4.jpg",
+    heading: "Phones",
+    subHeading: "Explore the Latest Phone Models and Features",
+  },
+  {
+    href: "/",
+    imgUrl: "/img/catalogImg2.jpg",
+    heading: "Repair",
+    subHeading: "Trustworthy Repair Services for All Your Devices",
+  },
+  {
+    href: "/",
+    imgUrl: "/img/catalogImg3.jpg",
+    heading: "Activation & Bill Payment",
+    subHeading: "Convenient Bill Payment Options for Your Ease",
+  },
+  {
+    href: "/",
+    imgUrl: "/img/catalogImg1.jpg",
+    heading: "Accessories",
+    subHeading: "Enhance Your Style with Trendy and Functional Accessories",
+  },
+]
 const Catalog: React.FC = () => {
   return (
-    <div>
-      <CatalogContainer>
-        <CatalogContent>
-          <Link href="/">
-            <CatalogCard>
-              <Image src="/img/catalogImg4.jpg" alt="catalog" />
-              <ImageOverlay>
-                <OverlayContent>Phones</OverlayContent>
-              </ImageOverlay>
-            </CatalogCard>
-          </Link>
-          <Link href="/">
-            <CatalogCard>
-              <Image src="/img/catalogImg2.jpg" alt="catalog" />
-              <ImageOverlay>
-                <OverlayContent>Repair</OverlayContent>
-              </ImageOverlay>
-            </CatalogCard>
-          </Link>
-          <Link href="/">
-            <CatalogCard>
-              <Image src="/img/catalogImg3.jpg" alt="catalog" />
-              <ImageOverlay>
-                <OverlayContent>Activation & <br /> Bill Payment</OverlayContent>
-              </ImageOverlay>
-            </CatalogCard>
-          </Link>
-          <Link href="/">
-            <CatalogCard>
-              <Image src="/img/catalogImg1.jpg" />
-              <ImageOverlay>
-                <OverlayContent>Accessories</OverlayContent>
-              </ImageOverlay>
-            </CatalogCard>
-          </Link>
-        </CatalogContent>
-      </CatalogContainer>
-    </div>
+    <>
+      <div className="max-w-[1536px] m-auto py-[4rem] relative w-full flex justify-center">
+        <div className="grid gap-[1rem] border-box grid-cols-4">
+          {catalogData.map((data, key) => (
+            <Link key={key} href="/" className="relative block border border-[#d1d5db]">
+              <div className="relative h-[350px] sm:h-[350px]">
+                <img
+                  src={data.imgUrl}
+                  alt=""
+                  className="inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 flex flex-col items-start justify-end p-6 bg-[rgba(17,17,17,0.4)]">
+                <h3 className="text-xl font-medium text-white">{data.heading}</h3>
+                <p className="mt-1.5 max-w-[40ch] text-xs text-white">
+                  {data.subHeading}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
   )
 }
 export default Catalog

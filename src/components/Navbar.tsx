@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { styled, keyframes } from "styled-components"
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import React from "react"
 
@@ -35,195 +34,76 @@ const NavItems: NavItemsProps[] = [
   }
 ]
 
-const Nav = styled.nav`
-  width:100%;
-  border-bottom: 1px solid;
-  border-color: var(--border);
-  position:sticky;
-  top:0;
-  z-index:10;
-  background-color:var(--bg);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-`
-const NavbarContainer = styled.div`
-  margin:auto;
-  height:60px;
-  max-width:var(--2xl);
-  justify-content:space-between;
-  align-items:center;
-  display:flex;
-  padding:0 1rem;
-  font-family:SpaceGrotesk;
-  color:var(--text);
-  font-weight:900;
-`
-const NavLeft = styled.div`
-`
-const NavRight = styled.div`
-  display:flex;
-  font-size:14px;
-`
-const NavItem = styled.div`
-  padding:0 0.5rem;
-  &:last-child{
-    padding:0;
-  }
-`
-const NavLinks = styled.div`
-  display:flex;
-  @media(max-width:768px){
-    display:none;
-  }
-`
-const NavHamburger = styled.div`
-`
-const NavigationMenuRoot = styled(NavigationMenu.Root)`
-  position:relative;
-  z-index:10;
-`
-const NavigationMenuContent = styled(NavigationMenu.Content)`
-  display:flex;
-  background-color:var(--bg);
-  flex-direction:column;
-  position:absolute;
-  margin:1rem 0;
-  width:150px;
-  box-sizing:border-box;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  border-radius:0.2rem;
-  overflow:hidden;
-`
-const NavigationMenuList = styled(NavigationMenu.List)`
-  list-style:none;
-`
-const LinkHoverAnimation = styled.div`
-  display: inline-block;
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`
-const HoverAnimation = styled.div`
-  display: inline-block;
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-`;
-
-const NavigationMenuLink = styled(Link)`
-  padding: 1rem;
-  border-bottom: 1px solid;
-  border-color: var(--border);
-  &:hover ${HoverAnimation}::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`;
-const NavigationMenuSub = styled(NavigationMenu.Sub)`
-`
-
-const NavigationMenuItem = styled(NavigationMenu.Item)`
-`
-const NavigationSubMenuItem = styled(NavigationMenu.Item)`
-`
-const NavigationSubMenuTrigger = styled(NavigationMenu.Trigger)`
-  width:100%;
-  display:flex;
-  border-bottom: 1px solid;
-  border-color: var(--border);
-  padding: 1rem;
-  &:hover ${HoverAnimation}::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`
 const Navbar: React.FC = () => {
   return (
-    <Nav>
-      <NavbarContainer>
-        <NavLeft >
+    <div className="w-full border-b-[1px] border-[#d1d5db] sticky top-0 bg-slate-50 z-10 px-[1rem]">
+      <div className="m-auto h-[60px] max-w-[1536px] flex justify-between items-center">
+        <div>
           <Link href="/">
             <Image src="/img/wireless_tech_logo.png" alt="logo" width={80} height={40} />
           </Link>
-        </NavLeft>
-        <NavRight>
-          <NavLinks>
+        </div>
+        <div className="flex text-sm font-bold">
+          <div className="flex">
             {NavItems.map((item, key) => (
-              <NavItem key={key} >
+              <div className="px-3 last:px-0" key={key} >
                 {
                   item.label === "SHOP" ? (
-                    <NavigationMenuRoot>
-                      <NavigationMenuList>
-                        <NavigationMenuItem>
+                    <NavigationMenu.Root className="relative z-10">
+                      <NavigationMenu.List>
+                        <NavigationMenu.Item>
                           <NavigationMenu.Trigger>
-                            <LinkHoverAnimation>
+                            <Link className="group" href="/products">
                               SHOP
-                            </LinkHoverAnimation>
+                              <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                            </Link>
                           </NavigationMenu.Trigger>
-                          <NavigationMenuContent>
-                            <NavigationMenuLink href="/">
-                              <HoverAnimation>
+                          <NavigationMenu.Content className="flex bg-slate-50 shadow-md shadow-zinc-700 flex-col absolute m-1 w-[150px] box-border rounded overflow-hidden">
+                            <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <div>
                                 APPLE
-                              </HoverAnimation>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink href="/">
-                              <HoverAnimation>
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                              </div>
+                            </Link>
+                            <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <div>
                                 SAMSUNG
-                              </HoverAnimation>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink href="/">
-                              <HoverAnimation>
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                              </div>
+                            </Link>
+                            <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <div>
                                 AMAZON
-                              </HoverAnimation>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink href="/">
-                              <HoverAnimation>
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                              </div>
+                            </Link>
+                            <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <div>
                                 ACCESSORIES
-                              </HoverAnimation>
-                            </NavigationMenuLink>
-                          </NavigationMenuContent>
-                        </NavigationMenuItem>
-                      </NavigationMenuList>
-                    </NavigationMenuRoot>
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                              </div>
+                            </Link>
+                          </NavigationMenu.Content>
+                        </NavigationMenu.Item>
+                      </NavigationMenu.List>
+                    </NavigationMenu.Root>
                   )
                     :
                     (
-                      <Link href={item.to}>
-                        <LinkHoverAnimation>
+                      <Link className="group" href={item.to}>
+                        <div>
                           {item.label}
-                        </LinkHoverAnimation>
+                          <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                        </div>
                       </Link>
                     )
                 }
-              </NavItem>
+              </div>
             ))}
-          </NavLinks>
-        </NavRight>
-      </NavbarContainer>
-    </Nav >
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 export default Navbar

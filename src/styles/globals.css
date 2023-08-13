@@ -1,90 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg-emphasis: #E5E5E5;
   --bg:#FFFFFF;
-  --bg-subtle: #EFEFF1;
-  --bg-muted:#F7F7F8;
 
   --accent:#fdcf41;
 
-  /* background -> components*/
-  --bg-info: #dee9fc;
-  --bg-success: #e2fbe8;
-  --bg-attention: #fceed8;
-  --bg-error: #f9e3e2;
-  --bg-dark-error: #752522;
-
-  /* Borders */
   --border-emphasis: #9ca3af;
   --border: #d1d5db;
   --border-subtle: #e5e7eb;
-  --border-booker: #e5e7eb;
-  --border-muted: #f3f4f6;
   --border-error: #aa2e26;
 
   --border-radius:0.375rem;
 
-  /* Content/Text */
   --text-emphasis: #101010;
   --text: #222;
   --text-subtle: #6b7280;
   --text-muted: #9ca3af;
   --text-inverted: #ffffff;
-
-  /* Content/Text -> components */
-  --text-info: #253985;
-  --text-success: #285231;
-  --text-attention: #73321b;
-  --text-error: #752522;
-
-/* background */
-  --bg-emphasis-dark: #2b2b2b;
-  --bg-dark: #101010;
-  --bg-subtle-dark: #2b2b2b;
-  --bg-muted-dark: #1c1c1c;
-  --bg-inverted-dark: #f3f4f6;
-
-  /* background -> components*/
-  --bg-info-dark: #dee9fc;
-  --bg-success-dark: #e2fbe8;
-  --bg-attention-dark: #fceed8;
-  --bg-error-dark: #f9e3e2;
-  --bg-dark-error-dark: #752522;
-
-  /* Borders */
-  --border-emphasis-dark: #575757;
-  --border-dark: #444444;
-  --border-subtle-dark: #2b2b2b;
-  --border-booker-dark: #2b2b2b;
-  --border-muted-dark: #1c1c1c;
-  --border-error-dark: #aa2e26;
-
-  /* Content/Text */
-  --text-emphasis-dark: #f3f4f6;
-  --text-dark: #FFFF;
-  --text-subtle-dark: #A5a5a5;
-  --text-muted-dark: #575757;
-  --text-inverted-dark: #101010;
-
-  /* Content/Text -> components */
-  --text-info-dark: #253985;
-  --text-success-dark: #285231;
-  --text-attention-dark: #73321b;
-  --text-error-dark: #752522;
-
-  /* Responsive Size*/
-  --sm:640px;
-  --md:768px;
-  --lg:1024px;
-  --xl:1280px;
-  --2xl:1536px;
 }
 @font-face {
   font-family: SpaceGrotesk;
   src: url(../../public/fonts/SpaceGrotesk.woff2) format("woff2");
-}
-@font-face {
-  font-family: PoppinsRegular;
-  src: url(../../public/fonts/PoppinsRegular.woff2) format("woff2");
 }
 *{
   margin:0px;
@@ -97,44 +36,9 @@
 body {
   background-color: var(--bg);
   box-sizing: border-box;
-  font-family:PoppinsRegular,Arial, Helvetica, sans-serif;
+  font-family:SpaceGrotesk,Arial, Helvetica, sans-serif;
   font-size: 1rem;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: var(--text);
-}
-a {
-  color: var(--text);
-  text-decoration: none;
-}
-button{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: var(--bg);
-  border: none;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-}
-@media (-webkit-min-device-pixel-ratio: 0) {
-  body {
-    -webkit-font-smoothing: antialiased;
-  }
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-@-moz-document url-prefix() {
-  body {
-    text-rendering: optimizeSpeed;
-  }
 }

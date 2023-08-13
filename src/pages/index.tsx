@@ -4,6 +4,7 @@ import Catalog from "@/components/Catalog"
 import PopularProduct from "@/components/PopularProduct"
 import Offer from "@/components/Offer"
 import NewProduct from "@/components/NewProduct"
+import FeaturedProducts from "@/components/FeaturedProducts"
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <PopularProduct />
         <Offer />
         <NewProduct />
+        <FeaturedProducts/>
       </main>
     </>
   )
