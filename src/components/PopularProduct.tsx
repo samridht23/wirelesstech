@@ -8,11 +8,11 @@ const PopularProduct = () => {
         <div className="text-[28px] p-[0.5rem] font-bold">
           NEW ARRIVALS
         </div>
-        <p className="max-w-md mx-auto mt-2 mb-4 text-gray-500">
+        <p className="max-w-md mx-auto mt-2 mb-4 text-gray-500 text-center">
           Next-Level Tech: Dive into Our Newest Arrivals Collection
         </p>
       </div>
-      <div className="w-full flex gap-[1rem] justify-center">
+      <div className="w-full flex gap-[1rem] flex-wrap justify-center">
         {data.map((data, key) => (
           <div key={key}>
             <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />

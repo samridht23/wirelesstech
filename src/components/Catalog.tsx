@@ -29,11 +29,11 @@ const catalogData = [
 const Catalog: React.FC = () => {
   return (
     <>
-      <div className="max-w-[1536px] m-auto py-[4rem] relative w-full flex justify-center">
-        <div className="grid gap-[1rem] border-box grid-cols-4">
+      <div className="max-w-[1536px] m-auto py-[4rem] px-[1rem] relative w-full flex justify-center">
+        <div className="grid gap-[1rem] border-box grid-cols-2 lg:grid-cols-4">
           {catalogData.map((data, key) => (
             <Link key={key} href="/" className="relative block border border-[#d1d5db]">
-              <div className="relative h-[350px] sm:h-[350px]">
+              <div className="relative h-[240px] md:h-[290px] lg:h-[350px]">
                 <img
                   src={data.imgUrl}
                   alt=""

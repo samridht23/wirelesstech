@@ -33,7 +33,7 @@ const Gallery = () => {
     <>
       <div className="max-w-[1536px] m-auto">
         <div className="flex justify-center p-12">
-          <div className="grid grid-cols-4 gap-2 justify-start max-w-[1500px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-start max-w-[1500px]">
             {images.map((src, index) => (
               <img
                 src={src}

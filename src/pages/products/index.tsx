@@ -69,12 +69,9 @@ const Product = () => {
     })
   }, [selectedCategory, searchTerm]);
   return (
-    <div className="w-full">
-      <div className="m-auto max-w-[1536px] px-[3rem] text-[2rem] font-bold pt-9">
-        SHOP
-      </div>
-      <div className="flex w-full px-[3rem] pt-[3rem] pb-[7rem] box-border gap-[2rem] m-auto max-w-[1536px]">
-        <div className="w-[300px] box-border">
+    <div className="w-full pt-9">
+      <div className="flex w-full px-[1rem] pt-[3rem] pb-[7rem] box-border gap-[2rem] m-auto max-w-[1536px]">
+        <div className="w-[300px] box-border hidden lg:block">
           <form onSubmit={handleSubmit}>
             <div className="font-[16px] font-bold border-b-[1px] border-[#d1d5db] pb-2" >
               SEARCH
@@ -118,7 +115,7 @@ const Product = () => {
             </RadioGroup.Root>
           </form>
         </div>
-        <div className="w-full grid lg:grid-cols-4 gap-2 md:grid-cols-3">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-2 md:grid-cols-3">
           {products.map((data, key) => (
             <div key={key}>
               <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />

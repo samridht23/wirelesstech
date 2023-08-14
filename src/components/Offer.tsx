@@ -12,7 +12,7 @@ const offerData = [
 const Offer = () => {
   return (
     <div className="max-w-[1536px] m-auto px-[1rem] py-[6rem] box-border w-full" >
-      <div className="flex justify-center items-center w-full box-border gap-[1rem]">
+      <div className="flex justify-center flex-col md:flex-row items-center w-full box-border gap-[1rem]">
         {offerData.map((data, key) => (
           <div key={key} className="relative w-full flex overflow-hidden">
             <img src={data.img} className="w-full object-cover h-[160px]" />

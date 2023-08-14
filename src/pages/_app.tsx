@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="pt-10">
         <Component {...pageProps} />
       </div>
       <Footer />
