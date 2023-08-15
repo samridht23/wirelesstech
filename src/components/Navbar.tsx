@@ -50,9 +50,15 @@ const Navbar: React.FC = () => {
     <div>
       <div className="w-full border-b-[1px] border-[#d1d5db] fixed top-0 right-0 bg-slate-50 z-30 px-[1rem]">
         <div className="m-auto h-[60px] max-w-[1536px] flex justify-between items-center">
-          <div>
-            <Link href="/">
-              <Image src="/img/wireless_tech_logo.png" alt="Logo" width={80} height={40} />
+          <div className="relative">
+            <Link href="/" className="relative">
+                <Image
+                  src="/img/wireless_tech_logo.png"
+                  width={100}
+                  height={100}
+                  alt="Logo"
+                  style={{ width: 'auto', height: 'auto' }}
+                />
             </Link>
           </div>
           <div className="block sm:hidden">
