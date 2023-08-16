@@ -6,10 +6,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { method } = req;
     switch (method) {
       case 'POST': {
+        const { subject, toEmail, otpText } = req.body;
+        console.log(subject)
+        console.log(toEmail)
+        console.log(otpText)
+        if (!subject || !toEmail || !otpText) {
+          return res.status(400).json({ error: 'Missing required data in request body' });
+        }
         await sendMail({
-          subject: 'TEST',
-          toEmail: 'samridht23@gmail.com',
-          otpText: 'THIS IS A TEST FOR MY MEDIUM USERS',
+          subject,
+          toEmail,
+          otpText,
         });
         res.status(200).send('Success');
         break;
