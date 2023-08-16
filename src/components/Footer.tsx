@@ -1,72 +1,135 @@
 import Link from "next/link"
 import { PhoneIcon, InstagramIcon, FacebookIcon, TwitterIcon } from "lucide-react"
 import { ReactNode } from 'react';
+import Image from "next/image"
 
+const quickLinks = [
+  {
+    href: "/about",
+    label: "About Us"
+  },
+  {
+    href: "/products",
+    label: "Shop"
+  },
+  {
+    href: "/services",
+    label: "Services"
+  },
+  {
+    href: "/gallery",
+    label: "Gallery"
+  },
+  {
+    href: "/contact",
+    label: "Contact Us"
+  },
+]
+const category = [
+  {
+    href: "/products#iphone",
+    label: "iPhone"
+  },
+  {
+    href: "/products#ipad",
+    label: "iPad"
+  },
+  {
+    href: "/products#apple_watch",
+    label: "Apple Watch"
+  },
+  {
+    href: "/products#samsung",
+    label: "Samsung"
+  },
+  {
+    href: "/products#amazon",
+    label: "Amazon"
+  },
+  {
+    href: "/products#accessories",
+    label: "Accessories"
+  }
+]
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 bg-white pt-20 pb-10 lg:pt-[80px] lg:pb-20 box-border border-t border-[#d1d5db]">
-        <div className="container max-w-[1236px] m-auto">
-          <div className="flex flex-wrap mx-4">
-            <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
-              <div className="w-full mb-10">
-                <Link href="/" className="pb-9 inline-block text-[2rem] font-bold">
-                  Wireless Tech
-                </Link>
-                <p className="flex items-center text-sm font-medium text-dark">
-                  <span className="mr-3 text-primary">
-                    <PhoneIcon size={20} />
-                  </span>
-                  <span>+012 (345) 678 99</span>
-                </p>
+      <footer className="bg-white border-t border-[#d1d5db]">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="flex flex-col justify-between items-center">
+            <div className="py-10 md:mb-0">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/img/wireless_tech_logo.png"
+                  width={100}
+                  height={100}
+                  alt="Logo"
+                />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Quick Links</h2>
+                <ul className="text-gray-500 text-sm">
+                  {
+                    quickLinks.map((data, key) => (
+                      <li key={key} className="mb-4">
+                        <Link href={data.href} className="hover:underline">{data.label}</Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Categories</h2>
+                <ul className="text-gray-500 text-sm">
+                  {
+                    category.map((data, key) => (
+                      <li key={key} className="mb-4">
+                        <Link href={data.href} className="hover:underline ">{data.label}</Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Contact Info</h2>
+                <ul className="text-gray-500 text-sm">
+                  <li className="mb-4">
+                    Mon - Sat : 9 AM- 8 PM
+                    <br />
+                    Sun : 10 AM - 8 PM
+                  </li>
+                  <li className="mb-4">
+                    160-11 Hillside Ave, Jamaica, NY 11432
+                  </li>
+                  <li className="mb-4">
+                    718-526-0251
+                  </li>
+                  <li className="mb-4">
+                    <a href="mailto:wtechny@gmail.com">wtechny@gmail.com</a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <LinkGroup header="Quick Links">
-              <NavLink link="/about" label="About Us" />
-              <NavLink link="/products" label="Shop" />
-              <NavLink link="/services" label="Services" />
-              <NavLink link="/gallery" label="Gallery" />
-              <NavLink link="/contact" label="Contact Us" />
-            </LinkGroup>
-            <LinkGroup header="Categories">
-              <NavLink link="#" label="iPhone" />
-              <NavLink link="#" label="iPad" />
-              <NavLink link="#" label="Apple Watch" />
-              <NavLink link="#" label="Samsung" />
-              <NavLink link="#" label="Samsung" />
-              <NavLink link="#" label="Amazon" />
-              <NavLink link="#" label="Accessories" />
-            </LinkGroup>
-            <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
-              <div className="w-full mb-10">
-                <h4 className="text-lg font-semibold mb-9 text-dark">
-                  Follow us On
-                </h4>
-                <div className="flex items-center mb-6">
-                  <a
-                    href="https://business.facebook.com/Wirelesstech-509981069207150/"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5] text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4"
-                  >
-                    <FacebookIcon size={20} />
-                  </a>
-                  <a
-                    href="https://business.facebook.com/Wirelesstech-509981069207150/"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5] text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4"
-                  >
-                    <TwitterIcon size={20} />
-                  </a>
-                  <a
-                    href="https://business.facebook.com/Wirelesstech-509981069207150/"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5] text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4"
-                  >
-                    <InstagramIcon size={20} />
-                  </a>
-                </div>
-                <p className="text-base text-body-color">
-                  {" "}
-                  © {new Date().getFullYear()} Wireless Tech{" "}
-                </p>
-              </div>
+          </div>
+          <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <span className="text-sm text-gray-500 sm:text-center ">© {new Date().getFullYear()} <span>Wireless Tech</span>. All Rights Reserved.
+            </span>
+            <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+              <a href="https://business.facebook.com/Wirelesstech-509981069207150/" className="text-gray-500 hover:text-gray-900 ">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                  <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                </svg>
+                <span className="sr-only">Facebook page</span>
+              </a>
+              <a href="https://business.facebook.com/Wirelesstech-509981069207150/" className="text-gray-500 hover:text-gray-900 ">
+                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                  <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd" />
+                </svg>
+                <span className="sr-only">Twitter page</span>
+              </a>
             </div>
           </div>
         </div>
@@ -77,39 +140,3 @@ const Footer = () => {
 
 export default Footer;
 
-interface LinkGroupProps {
-  children: ReactNode;
-  header: string;
-}
-
-interface NavLinkProps {
-  link: string;
-  label: string;
-}
-const LinkGroup: React.FC<LinkGroupProps> = ({ children, header }) => {
-  return (
-    <>
-      <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
-        <div className="w-full mb-10">
-          <h4 className="text-lg font-semibold mb-9 text-dark"> {header} </h4>
-          <ul>{children}</ul>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const NavLink: React.FC<NavLinkProps> = ({ link, label }) => {
-  return (
-    <div>
-      <li>
-        <Link
-          href={link}
-          className={`inline-block mb-2 text-base leading-loose text-body-color hover:text-primary`}
-        >
-          {label}
-        </Link>
-      </li>
-    </div>
-  );
-};

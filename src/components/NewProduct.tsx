@@ -1,5 +1,4 @@
 import Link from "next/link"
-
 const NewProduct = () => {
   return (
     <>
@@ -16,7 +15,7 @@ const NewProduct = () => {
           </header>
           <ul className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3">
             <li>
-              <a href="#" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px]">
                 <img
                   src="/img/airPodProNewCollection.jpg"
                   alt=""
@@ -34,10 +33,10 @@ const NewProduct = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px]">
                 <img
                   src="/img/iphone14NewCollection.jpg"
                   alt=""
@@ -55,10 +54,10 @@ const NewProduct = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
             <li className="md:col-span-2 md:col-start-2 md:row-span-2 md:row-start-1">
-              <a href="#" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px]">
                 <img
                   src="/img/iphone13NewCollection.jpg"
                   alt=""
@@ -75,7 +74,7 @@ const NewProduct = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

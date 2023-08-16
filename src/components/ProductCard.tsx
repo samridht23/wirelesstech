@@ -7,15 +7,19 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = (props) => {
   return (
     <div className="w-full h-full flex flex-col border border-[#d1d5db] box-border">
-      <div className="box-border w-full h-full p-[2rem] border-b-[1px] border-[#d1d5db]">
-        <Image
-          src={props.thumbnail_image}
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt="productCard"
-          style={{ width: '100%', height: 'auto' }} // optional
-        />
+      <div className="box-border w-full h-full p-[2rem] border-b-[1px] border-[#d1d5db] box-border">
+        {props.thumbnail_image ? (
+          <Image
+            src={props.thumbnail_image}
+            width={0}
+            height={0}
+            sizes="100vw"
+            alt="Product Image"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        ) : (
+          <div className="w-[236px] h-[236px] bg-gray-300 animate-pulse"></div>
+        )}
       </div>
       <div className="box-border w-full flex flex-col gap-[0.4rem] p-[0.8rem]">
         <div className="h-full text-[14px] truncate">{props.name}</div>

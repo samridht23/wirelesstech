@@ -59,15 +59,19 @@ const ProductPage = () => {
         <div className="mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-12">
             <div className="w-full flex items-center justify-center">
-              <div className="max-w-xl overflow-hidden rounded-md border border-[#d1d5db]">
-                <Image
-                  src={product.image}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  alt="Product Image"
-                  style={{ width: '100%', height: 'auto' }}
-                />
+              <div className="max-w-xl overflow-hidden rounded-md border border-[#d1d5db] w-full h-full">
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    alt="Product Image"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-300 animate-pulse"></div>
+                )}
               </div>
             </div>
             <div className="w-full">
@@ -101,7 +105,7 @@ const ProductPage = () => {
                       <></>
                   }
                 </div>
-                <button type="button" className="flex items-center justify-center bg-[#222] px-12 py-3 text-center text-base bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#101010]">
+                <button type="button" className="flex items-center justify-center bg-[#222]  px-12 py-3 text-center text-base bold text-white transition-all duration-200 ease-in-out hover:bg-[#fdcf41] hover:text-[#222]">
                   Book Now
                 </button>
               </div>

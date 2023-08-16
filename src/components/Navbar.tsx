@@ -52,13 +52,13 @@ const Navbar: React.FC = () => {
         <div className="m-auto h-[60px] max-w-[1536px] flex justify-between items-center">
           <div className="relative">
             <Link href="/" className="relative">
-                <Image
-                  src="/img/wireless_tech_logo.png"
-                  width={100}
-                  height={100}
-                  alt="Logo"
-                  style={{ width: 'auto', height: 'auto' }}
-                />
+              <Image
+                src="/img/wireless_tech_logo.png"
+                width={80}
+                height={80}
+                alt="Logo"
+                style={{ width: '100%', height: '50%' }}
+              />
             </Link>
           </div>
           <div className="block sm:hidden">
@@ -76,32 +76,32 @@ const Navbar: React.FC = () => {
                             <NavigationMenu.Trigger>
                               <Link className="group" href="/products">
                                 SHOP
-                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                               </Link>
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className="flex bg-slate-50 shadow-md shadow-zinc-700 flex-col absolute m-1 w-[150px] box-border rounded overflow-hidden">
-                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/products#apple">
                                 <div>
                                   APPLE
-                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                                 </div>
                               </Link>
-                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/products#samsung">
                                 <div>
                                   SAMSUNG
-                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                                 </div>
                               </Link>
-                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/products#amazon">
                                 <div>
                                   AMAZON
-                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                                 </div>
                               </Link>
-                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/">
+                              <Link className="group flex p-4 border-b-[1px] border-gray-[#d1d5db]" href="/products#accessories">
                                 <div>
                                   ACCESSORIES
-                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                                 </div>
                               </Link>
                             </NavigationMenu.Content>
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
                         <Link className="group" href={item.to}>
                           <div>
                             {item.label}
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-[#FDCF41]"></span>
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-1 bg-[#FDCF41]"></span>
                           </div>
                         </Link>
                       )

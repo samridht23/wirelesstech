@@ -2,25 +2,25 @@ import Link from "next/link"
 
 const catalogData = [
   {
-    href: "/",
+    href: "/products",
     imgUrl: "/img/catalogImg4.jpg",
     heading: "Phones",
     subHeading: "Explore the Latest Phone Models and Features",
   },
   {
-    href: "/",
+    href: "/services",
     imgUrl: "/img/catalogImg2.jpg",
     heading: "Repair",
     subHeading: "Trustworthy Repair Services for All Your Devices",
   },
   {
-    href: "/",
+    href: "/services",
     imgUrl: "/img/catalogImg3.jpg",
     heading: "Activation & Bill Payment",
     subHeading: "Convenient Bill Payment Options for Your Ease",
   },
   {
-    href: "/",
+    href: "/products#accessories",
     imgUrl: "/img/catalogImg1.jpg",
     heading: "Accessories",
     subHeading: "Enhance Your Style with Trendy and Functional Accessories",
@@ -32,7 +32,7 @@ const Catalog: React.FC = () => {
       <div className="max-w-[1536px] m-auto py-[4rem] px-[1rem] relative w-full flex justify-center">
         <div className="grid gap-[1rem] border-box grid-cols-2 lg:grid-cols-4">
           {catalogData.map((data, key) => (
-            <Link key={key} href="/" className="relative block border border-[#d1d5db]">
+            <Link key={key} href={data.href} className="relative block border border-[#d1d5db]">
               <div className="relative h-[240px] md:h-[290px] lg:h-[350px]">
                 <img
                   src={data.imgUrl}

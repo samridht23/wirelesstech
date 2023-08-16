@@ -1,5 +1,6 @@
 import data from "@/data/newArrivals.json"
 import ProductCard from "@/components/ProductCard"
+import Link from "next/link"
 
 const PopularProduct = () => {
   return (
@@ -14,9 +15,9 @@ const PopularProduct = () => {
       </div>
       <div className="w-full flex gap-[1rem] flex-wrap justify-center">
         {data.map((data, key) => (
-          <div key={key}>
+          <Link key={key} href={`/products/${data.product_value}`} className="p-2">
             <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

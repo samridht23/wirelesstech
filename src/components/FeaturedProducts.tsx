@@ -1,6 +1,6 @@
 import Carousel from "nuka-carousel"
 import data from "@/data/featuredProducts.json"
-import ProductCard from "@/components/ProductCard"
+import FeaturedProductCard from "@/components/FeaturedProductCard"
 
 const FeaturedProducts = () => {
   return (
@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
           <Carousel autoplay={true} autoplayInterval={2000} wrapAround={true} slidesToShow={3} withoutControls={true} pauseOnHover={false}>
             {data.map((data, key) => (
               <div className="p-2" key={key}>
-                <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />
+                <FeaturedProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} product_value={data.product_value} />
               </div>
             ))}
           </Carousel>
@@ -19,8 +19,8 @@ const FeaturedProducts = () => {
         <div className="block md:hidden pb-[1rem]">
           <Carousel autoplay={true} autoplayInterval={2000} wrapAround={true} slidesToShow={2} withoutControls={true} pauseOnHover={false}>
             {data.map((data, key) => (
-              <div className="p-2" key={key}>
-                <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />
+              <div key={key} className="p-2">
+                <FeaturedProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} product_value={data.product_value} />
               </div>
             ))}
           </Carousel>

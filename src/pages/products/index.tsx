@@ -1,10 +1,11 @@
 import data from "@/data/data.json"
 import ProductCard from "@/components/ProductCard"
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, use, useEffect } from "react"
 import * as RadioGroup from "@radix-ui/react-radio-group"
-import { CheckIcon, SearchIcon, ChevronDownIcon, ChevronsUpIcon } from "lucide-react"
+import { CheckIcon, SearchIcon, ChevronDownIcon } from "lucide-react"
 import * as Select from '@radix-ui/react-select';
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 const categoryData = [
   {
@@ -41,6 +42,8 @@ const categoryData = [
   }
 ]
 const Product = () => {
+  const router = useRouter()
+  const fragment = router.asPath.split('#')[1];
   const [selectedCategory, setSelectedCategory] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,7 +53,6 @@ const Product = () => {
     setSelectedCategory('');
     setSearchTerm(inputValue);
   }
-
   const products = useMemo(() => {
     if (selectedCategory === '') {
       if (searchTerm === '') {
@@ -70,6 +72,11 @@ const Product = () => {
       return product.category.includes(selectedCategory);
     })
   }, [selectedCategory, searchTerm]);
+  useEffect(() => {
+    if (fragment) {
+      setSelectedCategory(fragment)
+    }
+  }, [fragment])
   return (
     <div className="w-full pt-9">
       <div className="flex w-full px-[1rem] lg:pt-[2rem] pb-[7rem] box-border gap-[2rem] m-auto max-w-[1536px]">
@@ -153,12 +160,12 @@ const Product = () => {
               </Select.Trigger>
               <Select.Content
                 asChild
-                className="w-full overflow-hidden relative"
+                className="w-full overflow-hidden"
                 position='popper'
               >
-                <Select.Viewport className="relative w-full border border-[#d1d5db] w-[var(--radix-select-trigger-width)]">
+                <Select.Viewport className="border border-[#d1d5db] w-[var(--radix-select-trigger-width)]">
                   {categoryData.map((data, key) => (
-                    <Select.Item key={key} value={data.value} className='relative z-50 pl-[30px] outline-none bg-white text-base flex items-center p-3 relative text-[#222]'
+                    <Select.Item key={key} value={data.value} className='relative z-50 pl-[30px] outline-none bg-white text-base flex items-center p-3 text-[#222]'
                     >
                       <Select.ItemText>{data.name}</Select.ItemText>
                       <Select.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
@@ -170,7 +177,7 @@ const Product = () => {
               </Select.Content>
             </Select.Root>
           </div>
-          <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-2 md:grid-cols-3 z-10">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-2 md:grid-cols-3">
             {products.map((data, key) => (
               <Link key={key} href={`/products/${data.product_value}`}>
                 <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />
