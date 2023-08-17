@@ -7,22 +7,22 @@ const servicesData = [
     heading: "Repair Laptop, Tablet & PC",
   },
   {
-    href: "/services",
+    href: "/repair-phones",
     imgUrl: "/img/catalogImg2.jpg",
     heading: "Repair Phones",
   },
   {
-    href: "/services",
+    href: "/phone-unlocking",
     imgUrl: "/img/phoneUnlocking.jpg",
     heading: "Phone Unlocking",
   },
   {
-    href: "/products#accessories",
+    href: "/sim-card-activation",
     imgUrl: "/img/simCard.jpg",
     heading: "SIM Card Activation",
   },
   {
-    href: "/products#accessories",
+    href: "/bill-payment",
     imgUrl: "/img/catalogImg3.jpg",
     heading: "Bill Payment",
   },
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       <div className="max-w-[1536px] m-auto py-[4rem] md:py-[8rem] px-[1rem] relative w-full flex justify-center">
         <div className="grid gap-[1rem] border-box grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {servicesData.map((data, key) => (
-            <Link key={key} href={data.href} className="relative block border border-[#d1d5db]">
+            <Link key={key} href={data.href} className="rounded-lg overflow-hidden relative block border border-[#d1d5db]">
               <div className="relative h-[200px] md:h-[250px] lg:h-[350px]">
                 <img
                   src={data.imgUrl}

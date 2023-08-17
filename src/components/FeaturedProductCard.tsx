@@ -8,7 +8,7 @@ interface ProductCardProps {
 }
 const FeaturedProductCard: React.FC<ProductCardProps> = (props) => {
   return (
-    <Link href={`/products/${props.product_value}`} className="w-full h-full flex flex-col border border-[#d1d5db] box-border">
+    <Link href={`/products/${props.product_value}`} className="rounded w-full h-full flex flex-col border border-[#d1d5db] box-border">
       <div className="box-border w-full h-full p-[2rem] border-b-[1px] border-[#d1d5db]">
         <Image
           src={props.thumbnail_image}

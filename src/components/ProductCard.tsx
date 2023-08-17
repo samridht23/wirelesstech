@@ -6,7 +6,7 @@ interface ProductCardProps {
 }
 const ProductCard: React.FC<ProductCardProps> = (props) => {
   return (
-    <div className="w-full h-full flex flex-col border border-[#d1d5db] box-border">
+    <div className="w-full h-full flex flex-col rounded border border-[#d1d5db] box-border">
       <div className="box-border w-full h-full p-[2rem] border-b-[1px] border-[#d1d5db] box-border">
         {props.thumbnail_image ? (
           <Image

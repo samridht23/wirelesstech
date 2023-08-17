@@ -43,7 +43,7 @@ const composeOtpText = ({ name, email, phoneNumber, message, brand, model, probl
     Customer Message from website.
 
     Name: ${name}
-    Subject:Laptop,Tablet and PC Repair
+    Subject: Phone Repair
     Email: ${email}
     Phone: ${phoneNumber}
     Message:${message}
@@ -96,6 +96,7 @@ const Repair = () => {
         }),
       });
       if (response.ok) {
+        console.log("Message Sent")
         setSendingMessage(false)
         setName("")
         setEmail("")
@@ -137,7 +138,7 @@ const Repair = () => {
                 <p className="flex items-center flex-col">
                   <img
                     alt="Party"
-                    src="/img/laptopRepair.jpg"
+                    src="/img/catalogImg2.jpg"
                     className="h-full w-full h-[256px] rounded object-cover"
                   />
                   <span className="mx-2 w-full py-4">
@@ -150,7 +151,7 @@ const Repair = () => {
               <div
                 className="w-full py-10 mx-auto overflow-hidden bg-white lg:max-w-xl">
                 <h1 className="text-lg font-medium">
-                  REPAIR LAPTOP, TABLET & PC
+                  REPAIR PHONES
                 </h1>
                 <form className="mt-6 text-[#222]" onSubmit={handleSendMessage}>
                   <div className="grid grid-cols-2 gap-4">

@@ -51,13 +51,13 @@ const Navbar: React.FC = () => {
       <div className="w-full border-b-[1px] border-[#d1d5db] fixed top-0 right-0 bg-slate-50 z-30 px-[1rem]">
         <div className="m-auto h-[60px] max-w-[1536px] flex justify-between items-center">
           <div className="relative">
-            <Link href="/" className="relative">
+            <Link href="/" className="relative w-full">
               <Image
                 src="/img/wireless_tech_logo.png"
                 width={80}
                 height={80}
                 alt="Logo"
-                style={{ width: '100%', height: '50%' }}
+                style={{ width: '100%', height: '100%' }}
               />
             </Link>
           </div>

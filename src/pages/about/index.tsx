@@ -21,13 +21,6 @@ const About = () => {
             <p className="mt-4 text-gray-600">
               Wireless Tech is one-stop solution for all wireless needs. We are constantly working for our customers with a vision to help and provide all Wireless technical solutions. Wireless tech has more than ten years of experience in helping its clients. Our mission is to provide the customer with our services seven days a week—A quick turnaround time to any inquiry and questions directly with our clients.
             </p>
-
-            <Link
-              href="/"
-              className="mt-8 inline-block bg-[#222] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fdcf41] hover:text-[#222] focus:outline-none focus:ring focus:ring-yellow-400"
-            >
-              SHOP NOW
-            </Link>
           </div>
         </div>
       </div>

@@ -102,7 +102,7 @@ const Product = () => {
               </span>
             </div>
           </form>
-          <div className="font-[16px] font-bold border-b-[1px] border-[#d1d5db] pb-2" >
+          <div className="font-[16px] border-b-[1px] border-[#d1d5db] pb-2" >
             CATEGORY
           </div>
           <form className="py-4 flex w-full">
@@ -128,27 +128,25 @@ const Product = () => {
           <div className="w-full lg:hidden pb-2">
             <div>
               <form onSubmit={handleSubmit}>
-                <div className="relative">
+                <div className="relative flex border border-[#d1d5db] border-[1px] py-2.5 px-[15px]">
                   <input
                     type="text"
                     id="Search"
                     placeholder="Search"
-                    className="w-full border-[1px]  border-[#d1d5db] p-2.5 sm:text-sm box-border outline-none"
+                    className="w-full sm:text-sm box-border outline-none"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     autoComplete="off"
                   />
-                  <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-                    <button className="text-[#d1d5db] hover:text-gray-700">
-                      <SearchIcon />
-                    </button>
-                  </span>
+                  <button className="text-gray-400">
+                    <SearchIcon />
+                  </button>
                 </div>
               </form>
             </div>
           </div>
-          <div className="w-full lg:hidden pb-2">
-            <Select.Root onValueChange={(value) => { setSelectedCategory(value) }}>
+          <div className="w-full lg:hidden pb-2 relative">
+            <Select.Root defaultValue={""} onValueChange={(value) => { setSelectedCategory(value) }}>
               <Select.Trigger
                 className="flex items-center justify-between px-[15px] text-base p-2.5 bg-white outline-none border w-full text-gray-400 border-[#d1d5db]"
                 aria-label="Category"
@@ -159,16 +157,16 @@ const Product = () => {
                 </Select.Icon>
               </Select.Trigger>
               <Select.Content
-                asChild
-                className="w-full overflow-hidden"
+                className="w-[var(--radix-select-trigger-width)] relative shadow-xl border border-[#d1dbd5] fixed top-0 left-0 right-0 bottom-0 z-50"
                 position='popper'
+                avoidCollisions={true}
               >
-                <Select.Viewport className="border border-[#d1d5db] w-[var(--radix-select-trigger-width)]">
+                <Select.Viewport>
                   {categoryData.map((data, key) => (
-                    <Select.Item key={key} value={data.value} className='relative z-50 pl-[30px] outline-none bg-white text-base flex items-center p-3 text-[#222]'
+                    <Select.Item key={key} value={data.value} className="cursor-pointer border-b select-none relative px-[30px] outline-none bg-white text-base flex items-center p-3 relative text-[#222]"
                     >
                       <Select.ItemText>{data.name}</Select.ItemText>
-                      <Select.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
+                      <Select.ItemIndicator className="absolute left-1 flex items-center justify-center">
                         <CheckIcon size={20} />
                       </Select.ItemIndicator>
                     </Select.Item>

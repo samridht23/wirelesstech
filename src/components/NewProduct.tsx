@@ -15,7 +15,7 @@ const NewProduct = () => {
           </header>
           <ul className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3">
             <li>
-              <Link href="/products" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/airPodProNewCollection.jpg"
                   alt=""
@@ -28,7 +28,7 @@ const NewProduct = () => {
                   <h3 className="text-xl font-medium">AirPods Pro</h3>
 
                   <span
-                    className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>
@@ -36,7 +36,7 @@ const NewProduct = () => {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/iphone14NewCollection.jpg"
                   alt=""
@@ -49,7 +49,7 @@ const NewProduct = () => {
                   <h3 className="text-xl font-medium">Iphone 14</h3>
 
                   <span
-                    className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>
@@ -57,7 +57,7 @@ const NewProduct = () => {
               </Link>
             </li>
             <li className="md:col-span-2 md:col-start-2 md:row-span-2 md:row-start-1">
-              <Link href="/products" className="relative block group border-[1px]">
+              <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/iphone13NewCollection.jpg"
                   alt=""
@@ -69,7 +69,7 @@ const NewProduct = () => {
                   <h3 className="text-xl font-medium ">Iphone 13</h3>
 
                   <span
-                    className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>

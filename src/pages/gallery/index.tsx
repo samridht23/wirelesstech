@@ -32,15 +32,15 @@ const Gallery = () => {
   return (
     <>
       <div className="max-w-[1536px] m-auto">
-        <div className="flex justify-center p-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-start max-w-[1500px]">
+        <div className="flex justify-center p-12 z-50">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 max-w-[1500px]">
             {images.map((src, index) => (
               <img
                 src={src}
                 onClick={() => openImageViewer(index)}
                 key={index}
                 alt=""
-                className="object-cover w-full max-w-[300px] h-full cursor-pointer"
+                className="object-cover w-full max-w-[300px] h-full cursor-pointer rounded"
               />
             ))}
           </div>

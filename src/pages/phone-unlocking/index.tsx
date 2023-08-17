@@ -1,55 +1,29 @@
-import { useState, useEffect } from "react"
-import { CheckIcon } from "lucide-react"
-import * as Checkbox from '@radix-ui/react-checkbox';
+import { useState } from "react"
 
-interface ProblemProps {
-  batteryReplacement: boolean,
-  screenReplacement: boolean,
-  waterDamage: boolean,
-}
 interface FormProps {
   name: string,
   email: string,
   phoneNumber: string,
   message: string,
-  brand?: string,
   model?: string,
-  problem?: ProblemProps
+  imei?: string,
+  carrier?: string,
+  typeOfUnlocking?: string,
 }
-const problemList = [
-  {
-    label: "Battery Replacement",
-  },
-  {
-    label: "Screen Replacement",
-  },
-  {
-    label: "Water Damage",
-  },
-  {
-    label: "I don't know",
-  }
-]
-const composeOtpText = ({ name, email, phoneNumber, message, brand, model, problem }: FormProps) => {
+const composeOtpText = ({ name, email, phoneNumber, message, model, imei, carrier, typeOfUnlocking }: FormProps) => {
 
-  const selectedProblems = problem
-    ? Object.keys(problem)
-      .filter(key => problem[key as keyof ProblemProps])
-      .map(key => problemList.find(item => item.label === key)?.label)
-      .filter(Boolean)
-      .join(', ')
-    : '';
   const otpText = `
-    Customer Message from website.
+    Customer Message from Website.
 
     Name: ${name}
-    Subject:Laptop,Tablet and PC Repair
+    Subject: Phone Unlocking
     Email: ${email}
     Phone: ${phoneNumber}
     Message:${message}
-    Brand:${brand}
     Model:${model}
-    Problem:${selectedProblems}
+    IMEI:${imei}
+    Carrier:${carrier}
+    Type of Unlocking:${typeOfUnlocking}
   `;
   return otpText;
 
@@ -60,15 +34,11 @@ const Repair = () => {
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [message, setMessage] = useState("")
-  const [brand, setBrand] = useState("")
   const [model, setModel] = useState("")
+  const [imei, setImei] = useState("")
+  const [carrier, setCarrier] = useState("")
+  const [typeOfUnlocking, setTypeOfUnlocking] = useState("")
   const [sendingMessage, setSendingMessage] = useState(false);
-  const [userSelectedProblems, setUserSelectedProblems] = useState({
-    batteryReplacement: false,
-    screenReplacement: false,
-    waterDamage: false,
-    iDontKnow: false,
-  });
   const [messageSent, setMessageSent] = useState(false);
 
   const formData: FormProps = {
@@ -76,9 +46,10 @@ const Repair = () => {
     email: email,
     phoneNumber: phoneNumber,
     message: message,
-    brand: brand,
     model: model,
-    problem: userSelectedProblems
+    imei: imei,
+    carrier: carrier,
+    typeOfUnlocking: typeOfUnlocking,
   };
   const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -96,15 +67,17 @@ const Repair = () => {
         }),
       });
       if (response.ok) {
+        console.log("Message Sent")
         setSendingMessage(false)
+        setMessageSent(true)
         setName("")
         setEmail("")
         setPhoneNumber("")
         setMessage("")
-        setBrand("")
         setModel("")
-        setUserSelectedProblems({ batteryReplacement: false, screenReplacement: false, waterDamage: false, iDontKnow: false })
-        setMessageSent(true)
+        setImei("")
+        setCarrier("")
+        setTypeOfUnlocking("")
         setTimeout(() => {
           setMessageSent(false);
         }, 3000);
@@ -118,12 +91,6 @@ const Repair = () => {
       setSendingMessage(false)
     }
   }
-  const handleCheckboxChange = (problemState: any) => {
-    setUserSelectedProblems(prevState => ({
-      ...prevState,
-      ...problemState,
-    }));
-  };
   return (
     <div>
       <section className="bg-white">
@@ -137,11 +104,11 @@ const Repair = () => {
                 <p className="flex items-center flex-col">
                   <img
                     alt="Party"
-                    src="/img/laptopRepair.jpg"
+                    src="/img/phoneUnlocking.jpg"
                     className="h-full w-full h-[256px] rounded object-cover"
                   />
                   <span className="mx-2 w-full py-4">
-                    At Wireless Tech our Certified Repair Technician provides 100 % satisfaction of the Repairs done by Wireless Tech. Fast, Reliable, Secure and Quick Turnaround makes us very dependable. Wireless Tech offer warranty for any repairs done by us so feel free to Get your devices repair by us.
+                    We offer all types of unlocking- Factory Unlocking, Pin Unlocking, Google Unlocking and also Clean Blacklisted phones.
                   </span>
                 </p>
               </div>
@@ -150,43 +117,30 @@ const Repair = () => {
               <div
                 className="w-full py-10 mx-auto overflow-hidden bg-white lg:max-w-xl">
                 <h1 className="text-lg font-medium">
-                  REPAIR LAPTOP, TABLET & PC
+                  PHONE UNLOCKING
                 </h1>
                 <form className="mt-6 text-[#222]" onSubmit={handleSendMessage}>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block mb-2 text-sm">Brand</label>
-                      <input value={brand} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setBrand(e.target.value)} type="text" required className="text-sm block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]  outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-2 text-sm">Model</label>
-                      <input value={model} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setModel(e.target.value)} type="text" required className="text-sm block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]  outline-none" />
-                    </div>
+                  <div className="flex-1 mt-6">
+                    <label className="block mb-2 text-sm">Model</label>
+                    <input value={model} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setModel(e.target.value)} type="text" required
+                      className="text-sm outline-none block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]" />
                   </div>
-                  <div className="py-4">
-                    <label className="block mb-2 text-sm">Your Problem</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {problemList.map((data, key) => (
-                        <div key={key} className="flex items-center">
-                          <Checkbox.Root
-                            className="flex items-center justify-center h-6 w-6  rounded-sm border border-[#d1d5db] ring-offset-background"
-                            key={key}
-                            onCheckedChange={(checked) => {
-                              handleCheckboxChange({ [data.label]: checked });
-                            }}
-                          >
-                            <Checkbox.Indicator className="box-border flex items-center justify-center text-current">
-                              <CheckIcon size={18} />
-                            </Checkbox.Indicator>
-                          </Checkbox.Root>
-                          <label className="w-full text-sm text-[#222] pl-2">
-                            {data.label}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex-1 mt-6">
+                    <label className="block mb-2 text-sm">IMEI</label>
+                    <input value={imei} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setImei(e.target.value)} type="text" required
+                      className="text-sm outline-none block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 mt-6">
+                    <label className="block mb-2 text-sm">Carrier</label>
+                    <input value={carrier} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setCarrier(e.target.value)} type="text" required
+                      className="text-sm outline-none block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]" />
+                  </div>
+                  <div className="flex-1 mt-6">
+                    <label className="block mb-2 text-sm capitalize">Type of Unlocking</label>
+                    <input value={typeOfUnlocking} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setTypeOfUnlocking(e.target.value)} type="text" required
+                      className="text-sm outline-none block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]" />
+                  </div>
+                  <div className="flex-1 mt-6">
                     <label className="block mb-2 text-sm">Name</label>
                     <input value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setName(e.target.value)} type="text" required className="text-sm block w-full px-5 py-3 mt-2 bg-white border border-[#d1d5db]  outline-none" />
                   </div>

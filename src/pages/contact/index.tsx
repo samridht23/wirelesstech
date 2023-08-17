@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { PhoneIcon, MapPinIcon, MailIcon } from "lucide-react"
 interface FormProps {
   name: string,
@@ -11,7 +11,6 @@ const composeOtpText = ({ name, email, phoneNumber, message }: FormProps) => {
   const otpText = `
     Customer Message from website.
 
-    Customer Info
     Name: ${name}
     Email: ${email}
     Phone: ${phoneNumber}
@@ -25,6 +24,8 @@ const Contact = () => {
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [message, setMessage] = useState("")
+  const [sendingMessage, setSendingMessage] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
   const formData: FormProps = {
     name: name,
     email: email,
@@ -33,6 +34,7 @@ const Contact = () => {
   };
   const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSendingMessage(true)
     try {
       const response = await fetch('/api', {
         method: 'POST',
@@ -46,13 +48,23 @@ const Contact = () => {
         }),
       });
       if (response.ok) {
-        console.log("Message Sent")
+        setSendingMessage(false)
+        setMessageSent(true)
+        setName("")
+        setEmail("")
+        setPhoneNumber("")
+        setMessage("")
+        setTimeout(() => {
+          setMessageSent(false);
+        }, 3000);
       }
       else {
         console.log("Error sending Message")
+        setSendingMessage(false)
       }
     } catch (err) {
       console.error('Error sending Message', err)
+      setSendingMessage(false)
     }
   }
   return (
@@ -107,8 +119,28 @@ const Contact = () => {
                     <label className="block mb-2 text-sm">Message</label>
                     <textarea maxLength={500} value={message} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => setMessage(e.target.value)} required className="resize-none text-sm outline-none block w-full h-32 px-5 py-3 mt-2 placeholder-gray-400 bg-white border border-[#d1d5db] md:h-48" placeholder="Message"></textarea>
                   </div>
-                  <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#222]">
-                    Submit
+                  <button className="relative w-full px-6 py-3 mt-6 text-sm font-medium hover:bg-[#101010] text-white capitalize transition-colors duration-300 transform bg-[#222]" disabled={sendingMessage}>
+                    {messageSent && (
+                      <div className="absolute top-0 right-0 w-full flex justify-center -translate-y-12">
+                        <div className="max-w-xs bg-green-100 border border-green-200 text-sm text-green-500 rounded border shadow-md" role="alert">
+                          <div className="flex px-4 py-2">
+                            Message Sent
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {
+                      sendingMessage ?
+                        <div className="flex justify-center items-center gap-x-2">
+                          <div
+                            className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            role="status">
+                          </div>
+                          Sending
+                        </div>
+                        :
+                        <div>Submit</div>
+                    }
                   </button>
                 </form>
               </div>

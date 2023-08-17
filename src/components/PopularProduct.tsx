@@ -13,7 +13,7 @@ const PopularProduct = () => {
           Next-Level Tech: Dive into Our Newest Arrivals Collection
         </p>
       </div>
-      <div className="w-full flex gap-[1rem] flex-wrap justify-center">
+      <div className="m-auto grid grid-cols-2 md:grid-cols-4 max-w-[1000px] flex-wrap justify-center">
         {data.map((data, key) => (
           <Link key={key} href={`/products/${data.product_value}`} className="p-2">
             <ProductCard name={data.name} thumbnail_image={data.thumb_img} category={data.category} />
