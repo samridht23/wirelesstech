@@ -145,6 +145,7 @@ const Product = () => {
               </form>
             </div>
           </div>
+          {/*
           <div className="w-full lg:hidden pb-2 relative">
             <Select.Root defaultValue={""} onValueChange={(value) => { setSelectedCategory(value) }}>
               <Select.Trigger
@@ -175,6 +176,7 @@ const Product = () => {
               </Select.Content>
             </Select.Root>
           </div>
+          */}
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-2 md:grid-cols-3">
             {products.map((data, key) => (
               <Link key={key} href={`/products/${data.product_value}`}>
