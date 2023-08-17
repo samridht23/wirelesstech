@@ -15,7 +15,7 @@ const FeaturedProductCard: React.FC<ProductCardProps> = (props) => {
           width={0}
           height={0}
           sizes="100vw"
-          alt="productCard"
+          alt="Featured Product Image"
           style={{ width: '100%', height: 'auto' }} // optional
         />
       </div>

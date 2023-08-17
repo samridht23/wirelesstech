@@ -36,7 +36,7 @@ const Catalog: React.FC = () => {
               <div className="relative h-[200px] md:h-[290px] lg:h-[350px]">
                 <img
                   src={data.imgUrl}
-                  alt=""
+                  alt="Services Catalog"
                   className="inset-0 h-full w-full object-cover"
                 />
               </div>

@@ -18,7 +18,7 @@ const NewProduct = () => {
               <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/airPodProNewCollection.jpg"
-                  alt=""
+                  alt="AirPods Pro Image"
                   className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
                 />
 
@@ -39,7 +39,7 @@ const NewProduct = () => {
               <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/iphone14NewCollection.jpg"
-                  alt=""
+                  alt="iPhone 14 Image"
                   className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
                 />
 
@@ -60,7 +60,7 @@ const NewProduct = () => {
               <Link href="/products" className="relative block group border-[1px] rounded overflow-hidden">
                 <img
                   src="/img/iphone13NewCollection.jpg"
-                  alt=""
+                  alt="iPhone 13 Image"
                   className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
                 />
                 <div
