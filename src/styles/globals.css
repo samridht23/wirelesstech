@@ -25,6 +25,10 @@
   font-family: SpaceGrotesk;
   src: url(../../public/fonts/SpaceGrotesk.woff2) format("woff2");
 }
+@font-face {
+  font-family: SpaceGroteskBold;
+  src: url(../../public/fonts/SpaceGroteskBold.woff2) format("woff2");
+}
 *{
   margin:0px;
   padding:0px;

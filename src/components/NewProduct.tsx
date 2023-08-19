@@ -5,7 +5,7 @@ const NewProduct = () => {
       <section>
         <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 md:px-8">
           <header className="text-center">
-            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
+            <h2 className="text-xl font-['SpaceGroteskBold'] text-gray-900 sm:text-3xl">
               NEW COLLECTION
             </h2>
 
@@ -25,10 +25,10 @@ const NewProduct = () => {
                 <div
                   className="absolute inset-0 flex flex-col items-start justify-end p-6"
                 >
-                  <h3 className="text-xl font-medium">AirPods Pro</h3>
+                  <h3 className="text-xl font-[SpaceGroteskBold]">AIRPODS PRO</h3>
 
                   <span
-                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-[SpaceGroteskBold] uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>
@@ -46,10 +46,10 @@ const NewProduct = () => {
                 <div
                   className="absolute inset-0 flex flex-col items-start justify-end p-6"
                 >
-                  <h3 className="text-xl font-medium">Iphone 14</h3>
+                  <h3 className="text-xl font-[SpaceGroteskBold]">IPHONE 14</h3>
 
                   <span
-                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-[SpaceGroteskBold] uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>
@@ -66,10 +66,10 @@ const NewProduct = () => {
                 <div
                   className="absolute inset-0 flex flex-col items-start justify-end p-6"
                 >
-                  <h3 className="text-xl font-medium ">Iphone 13</h3>
+                  <h3 className="text-xl font-[SpaceGroteskBold]">IPHONE 13</h3>
 
                   <span
-                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                    className="rounded mt-1.5 inline-block bg-black px-5 py-3 text-xs font-[SpaceGroteskBold] uppercase tracking-wide text-white"
                   >
                     Shop Now
                   </span>
